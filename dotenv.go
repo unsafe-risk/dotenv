@@ -44,7 +44,10 @@ func Apply(path string) error {
 			break
 		}
 		value, err := reader.ReadBytes('\n')
-		if err != nil && err != io.EOF {
+		if err != nil {
+			if err == io.EOF {
+				os.Setenv(string(key[:len(key)-1]), string(value))
+			}
 			break
 		}
 		os.Setenv(string(key[:len(key)-1]), string(value[:len(value)-1]))
