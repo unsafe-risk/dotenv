@@ -1,3 +1,3 @@
-module github.com/snowmerak/dotenv
+module github.com/unsafe-risk/dotenv
 
 go 1.18
